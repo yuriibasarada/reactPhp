@@ -1,0 +1,9 @@
+{
+    "require": {
+        "react/http": "^0.8.4",
+        "react/filesystem": "^0.1.2"
+    },
+    "autoload": {
+        "pas-0": {"": "source/"}
+    }
+}
