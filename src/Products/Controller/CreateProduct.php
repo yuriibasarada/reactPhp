@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DEV
- * Date: 29.10.2019
- * Time: 14:06
- */
 
 namespace App\Products\Controller;
 
@@ -15,6 +9,14 @@ final class CreateProduct
 {
     public function __invoke(ServerRequestInterface $request)
     {
-        return  JsonResponse::ok(['message' => 'POST request to /products']);
+        $product = [
+          'name' => $request->getParsedBody()['name'],
+          'price' => $request->getParsedBody()['price']
+        ];
+        return  JsonResponse::ok([
+            'message' => 'POST request to /products',
+            'product' => $product
+        ]);
     }
 }
+

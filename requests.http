@@ -4,7 +4,12 @@ GET http://127.0.0.1:8000/products
 
 ### Create a new product
 POST http://127.0.0.1:8000/products
+Content-Type: application/json
 
+{
+"name" : "MacBook Pro",
+"price" : 2800
+}
 
 ### Get product by id
 GET http://127.0.0.1:8000/products/1
@@ -24,7 +29,12 @@ GET http://127.0.0.1:8000/orders
 
 ### Create a new orders
 POST http://127.0.0.1:8000/orders
+Content-Type: application/json
 
+{
+  "productId" : 1,
+  "quantity" : 2
+}
 
 ### Get orders by id
 GET http://127.0.0.1:8000/orders/1
