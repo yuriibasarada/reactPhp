@@ -7,8 +7,8 @@ POST http://127.0.0.1:8000/products
 Content-Type: application/json
 
 {
-"name" : "MacBook Pro",
-"price" : 2800
+  "name": "MacBook Pro",
+  "price": "Hi"
 }
 
 ### Get product by id
@@ -16,7 +16,12 @@ GET http://127.0.0.1:8000/products/1
 
 
 ### Update product by id
-PUT http://127.0.0.1:8000/products/1
+PUT http://127.0.0.1:8000/products/2
+Content-Type: application/json
+
+{
+  "price": "test"
+}
 
 ### Delete product by id
 DELETE http://127.0.0.1:8000/products/1
@@ -32,8 +37,8 @@ POST http://127.0.0.1:8000/orders
 Content-Type: application/json
 
 {
-  "productId" : 1,
-  "quantity" : 2
+  "productId": 1,
+  "quantity": 2
 }
 
 ### Get orders by id

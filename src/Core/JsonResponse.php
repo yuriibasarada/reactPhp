@@ -14,12 +14,12 @@ use React\Http\Response;
 final class JsonResponse extends Response
 {
 
-    public function __construct(int $statusCoude, $data = null)
+    public function __construct(int $statusCode, $data = null)
     {
-        $data = $data ? json_encode($data) : null;
+        $data = $data !== null ? json_encode($data) : null;
 
         parent::__construct(
-            $statusCoude,
+            $statusCode,
             ['Content-type' => 'application/json'],
             $data
         );
@@ -34,5 +34,19 @@ final class JsonResponse extends Response
     {
         return new self(500, ['message' => $reason]);
     }
-    
+
+    public static function notFound(): self
+    {
+        return new self(404);
+    }
+
+    public static function noContent(): self
+    {
+        return new self(204);
+    }
+
+    public static function badRequest(string ...$error): self
+    {
+        return new self(400, ['errors' => $error]);
+    }
 }

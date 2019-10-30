@@ -1,0 +1,366 @@
+PUT http://127.0.0.1:8000/products/2
+Content-Type: application/json
+
+{
+  "price": "test"
+}
+
+<> 2019-10-30T055240.400.json
+
+###
+
+PUT http://127.0.0.1:8000/products/2
+Content-Type: application/json
+
+{
+  "price": "test"
+}
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "price": "Hi"
+}
+
+<> 2019-10-30T053944.400.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "price": "Hi"
+}
+
+<> 2019-10-30T053404.200.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "price": "Hi"
+}
+
+<> 2019-10-30T053255.200.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "price": "Hi"
+}
+
+<> 2019-10-30T053115.200.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro",
+  "price": "Hi"
+}
+
+<> 2019-10-30T051819.400.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro"
+}
+
+<> 2019-10-30T051733.400.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro"
+}
+
+<> 2019-10-30T051654.400.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro"
+}
+
+<> 2019-10-30T051547.200.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro"
+}
+
+<> 2019-10-30T051411.200.json
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T045806.200.json
+
+###
+
+PUT http://127.0.0.1:8000/products/2
+Content-Type: application/json
+
+{
+  "name" : "MacBook Pro",
+  "price" : 2900
+}
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T045717.200.json
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro",
+"price" : 2800
+}
+
+<> 2019-10-30T045658.200.json
+
+###
+
+DELETE http://127.0.0.1:8000/products/1
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T044508.200.json
+
+###
+
+GET http://127.0.0.1:8000/products
+
+###
+
+DELETE http://127.0.0.1:8000/products/1
+
+###
+
+DELETE http://127.0.0.1:8000/products/1
+
+<> 2019-10-30T044222.500.json
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T042217.200.json
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T041732.500.txt
+
+###
+
+GET http://127.0.0.1:8000/products
+
+<> 2019-10-30T041517.500.txt
+
+###
+
+GET http://127.0.0.1:8000/products/10
+
+###
+
+GET http://127.0.0.1:8000/products/1
+
+<> 2019-10-30T035552.200.json
+
+###
+
+GET http://127.0.0.1:8000/products/1
+
+<> 2019-10-30T034430.500.txt
+
+###
+
+GET http://127.0.0.1:8000/products/1
+
+<> 2019-10-30T034034.500.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+Content-Type: application/json
+
+{
+"name" : "MacBook Pro",
+"price" : 2800
+}
+
+<> 2019-10-30T030406.200.json
+
+###
+
+GET http://127.0.0.1:8000/products/1
+
+<> 2019-10-29T051245.200.txt
+
+###
+
+GET http://127.0.0.1:8000/orders
+
+<> 2019-10-29T051226.500.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+
+<> 2019-10-29T044646.500.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+
+<> 2019-10-29T044633.500.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T044557.500.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T044525.500.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+
+<> 2019-10-29T044510.500.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+
+<> 2019-10-29T044444.500.txt
+
+###
+
+GET http://127.0.0.1:8000/products/1
+
+<> 2019-10-29T044403.500.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T044350.500.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T044147.500.txt
+
+###
+
+DELETE http://127.0.0.1:8000/orders/1
+
+<> 2019-10-29T043817.200.txt
+
+###
+
+DELETE http://127.0.0.1:8000/products/1
+
+<> 2019-10-29T043812.200.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T041922.200.txt
+
+###
+
+DELETE http://127.0.0.1:8000/products/1
+
+<> 2019-10-29T041920.200.txt
+
+###
+
+GET http://127.0.0.1:8000/orders
+
+<> 2019-10-29T041916.200.txt
+
+###
+
+GET http://127.0.0.1:8000/orders/1
+
+<> 2019-10-29T040601.200.txt
+
+###
+
+POST http://127.0.0.1:8000/orders
+
+<> 2019-10-29T040557.200.txt
+
+###
+
+GET http://127.0.0.1:8000/orders/1
+
+<> 2019-10-29T032730.404.txt
+
+###
+
+POST http://127.0.0.1:8000/products
+
+<> 2019-10-29T032727.200.txt
+
+###
+
+DELETE http://127.0.0.1:8000/orders/1
+
+<> 2019-10-29T032431.404.txt
+
+###
+
+DELETE http://127.0.0.1:8000/orders/1
+
+<> 2019-10-29T032421.404.txt
+
+###
+
