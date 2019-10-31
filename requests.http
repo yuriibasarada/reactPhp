@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
   "name": "MacBook Pro",
-  "price": "Hi"
+  "price": 5050
 }
 
 ### Get product by id
@@ -16,15 +16,16 @@ GET http://127.0.0.1:8000/products/1
 
 
 ### Update product by id
-PUT http://127.0.0.1:8000/products/2
+PUT http://127.0.0.1:8000/products/8
 Content-Type: application/json
 
 {
-  "price": "test"
+  "name": "MacBook Pro 1",
+  "price": 6050
 }
 
 ### Delete product by id
-DELETE http://127.0.0.1:8000/products/1
+DELETE http://127.0.0.1:8000/products/8
 
 
 
@@ -42,9 +43,9 @@ Content-Type: application/json
 }
 
 ### Get orders by id
-GET http://127.0.0.1:8000/orders/1
+GET http://127.0.0.1:8000/orders/4
 
 ### Delete orders by id
-DELETE http://127.0.0.1:8000/orders/1
+DELETE http://127.0.0.1:8000/orders/4
 
 ###

@@ -9,6 +9,7 @@
 namespace App\Products\Controller;
 
 use App\Core\JsonResponse;
+use App\Products\Controller\Output\Request;
 use App\Products\ProductNotFound;
 use Exception;
 use Psr\Http\Message\ServerRequestInterface;
@@ -28,7 +29,10 @@ final class DeleteProduct
         return $this->storage->delete((int) $id)
             ->then(
                 function() {
-                    return JsonResponse::noContent();
+                    $response = [
+                      'request' => Request::createProduct(),
+                    ];
+                    return JsonResponse::ok($response);
                 }
             )
             ->otherwise(function (ProductNotFound $error){

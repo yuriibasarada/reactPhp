@@ -3,12 +3,12 @@
 namespace App\Products\Controller;
 
 use App\Core\JsonResponse;
+use App\Products\Controller\Output\Request;
 use App\Products\Storage;
 use Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Products\Product;
-use Respect\Validation\Exceptions\NestedValidationException;
-use Respect\Validation\Validator;
+use App\Products\Controller\Output\Product as Output;
 
 final class CreateProduct
 {
@@ -25,7 +25,12 @@ final class CreateProduct
         $input->validate();
         return $this->storage->create($input->name(), $input->price())
             ->then(function (Product $product) {
-                return JsonResponse::ok($product->toArray());
+                $response = [
+                    'product' => Output::fromEntity(
+                        $product, Request::detailedProduct($product->id)
+                    )
+                ];
+                return JsonResponse::created($response);
             },
                 function (Exception $exception) {
                     return JsonResponse::internalServerError($exception->getMessage());

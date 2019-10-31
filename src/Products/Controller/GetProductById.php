@@ -8,11 +8,13 @@
 
 namespace App\Products\Controller;
 use App\Core\JsonResponse;
+use App\Products\Controller\Output\Request;
 use App\Products\ProductNotFound;
 use App\Products\Storage;
 use Exception;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Products\Product;
+use App\Products\Controller\Output\Product as Output;
 
 final class GetProductById
 {
@@ -29,7 +31,13 @@ final class GetProductById
             ->getById((int)$id)
             ->then(
                 function (Product $product) {
-                    return JsonResponse::ok($product->toArray());
+                    $response = [
+                      'product' => Output::fromEntity(
+                          $product, Request::updateProduct($product->id)
+                      ),
+                        'request' => Request::listProducts(),
+                    ];
+                    return JsonResponse::ok($response);
                 }
             )
             ->otherwise(function(ProductNotFound $error){
