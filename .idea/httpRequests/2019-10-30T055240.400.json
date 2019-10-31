@@ -1,8 +1,0 @@
-{
-  "errors": [
-    "Key name must be present",
-    "These rules must pass for price",
-    "price must be numeric",
-    "price must be positive"
-  ]
-}
