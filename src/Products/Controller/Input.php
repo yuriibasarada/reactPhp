@@ -4,6 +4,7 @@ namespace App\Products\Controller;
 
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
 
@@ -51,5 +52,11 @@ final class Input
     public function price(): float
     {
         return (float)$this->request->getParsedBody()['price'];
+    }
+
+    public function image(): ?UploadedFileInterface
+    {
+        $files = $this->request->getUploadedFiles();
+        return $files['image'] ?? null;
     }
 }

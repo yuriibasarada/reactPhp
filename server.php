@@ -2,6 +2,7 @@
 
 use App\Core\ErrorHandler;
 use App\Core\JsonRequestDecoder;
+use App\Core\Uploader;
 use App\Orders\Controller\CreateOrder\Controller;
 use App\Orders\Controller\DeleteOrder;
 use App\Orders\Controller\GetAllOrders;
@@ -17,10 +18,10 @@ use FastRoute\DataGenerator\GroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std;
 use React\EventLoop\Factory;
+use React\Filesystem\Filesystem;
 use React\Http\Server;
 use App\Products\Storage as Products;
 use App\Orders\Storage as Orders;
-
 require 'vendor/autoload.php';
 
 $env = Dotenv::create(__DIR__);
@@ -31,14 +32,16 @@ $mysql = new \React\MySQL\Factory($loop);
 $uri = getenv('DB_LOGIN') . ':' . getenv('DB_PASS') . '@' . getenv('DB_HOST') . '/' . getenv('DB_NAME');
 $connection = $mysql->createLazyConnection($uri);
 
+
+$filesystem = Filesystem::create($loop);
+$uploader = new Uploader($filesystem, __DIR__);
+
 $products = new Products($connection);
 $orders = new Orders($connection);
-
-
 $routes = new RouteCollector(new Std(), new GroupCountBased());
 
 $routes->get('/products', new GetAllProducts($products));
-$routes->post('/products', new CreateProduct($products));
+$routes->post('/products', new CreateProduct($products, $uploader));
 $routes->get('/products/{id:\d+}', new GetProductById($products));
 $routes->put('/products/{id:\d+}', new UpdateProduct($products));
 $routes->delete('/products/{id:\d+}', new DeleteProduct($products));
