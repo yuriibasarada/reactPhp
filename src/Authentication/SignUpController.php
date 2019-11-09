@@ -25,7 +25,7 @@ final class SignUpController
         $input = new Input($request);
         $input->validate();
 
-        return $this->storage->create($input->email(), $input->hashedPassword())
+        return $this->storage->create($input->email(), $input->hashedPassword(), $input->name())
             ->then(
                 function () {
                     return JsonResponse::created([]);

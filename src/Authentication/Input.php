@@ -4,6 +4,7 @@
 namespace App\Authentication;
 
 
+use Firebase\JWT\JWT;
 use Psr\Http\Message\ServerRequestInterface;
 use Respect\Validation\Validator;
 
@@ -35,6 +36,7 @@ final class Input
                 Validator::stringType()
             ))->setName('password');
 
+
         $validator = Validator::allOf($emailValidator, $passwordValidator);
 
         $validator->assert($this->request->getParsedBody());
@@ -54,4 +56,16 @@ final class Input
     {
         return $this->request->getParsedBody()['password'];
     }
+
+
+    public function name(): ?string
+    {
+        return $this->request->getParsedBody()['name'];
+    }
+
+    public function token()
+    {
+        return $this->request->getParsedBody()['token'];
+    }
+
 }

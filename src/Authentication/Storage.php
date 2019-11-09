@@ -4,7 +4,6 @@
 namespace App\Authentication;
 
 
-use mysql_xdevapi\Exception;
 use React\MySQL\ConnectionInterface;
 use React\MySQL\QueryResult;
 use React\Promise\PromiseInterface;
@@ -13,6 +12,7 @@ use function React\Promise\resolve;
 
 final class Storage
 {
+    private const START_BILL = 1000;
     /**
      * @var ConnectionInterface
      */
@@ -23,7 +23,7 @@ final class Storage
         $this->connection = $connection;
     }
 
-    public function create(string $email, string $password): PromiseInterface
+    public function create(string $email, string $password, ?string $name): PromiseInterface
     {
         return $this->emailIsNotTaken($email)
             ->then(
@@ -32,6 +32,15 @@ final class Storage
                         ->query(
                             'INSERT INTO users(email, password) VALUES (?, ?)',
                             [$email, $password]
+                        );
+                }
+            )
+            ->then(
+                function (QueryResult $command) use ($name) {
+                    return $this->connection
+                        ->query(
+                            'INSERT INTO users_info(user_id, name, bill) VALUES (?, ?, ?)',
+                            [$command->insertId, $name, self::START_BILL]
                         );
                 }
             );
@@ -67,6 +76,23 @@ final class Storage
                     $row['email'],
                     $row['password']
                 );
+            });
+    }
+
+    public function getInfoById(int $id): PromiseInterface
+    {
+        return $this->connection
+            ->query(
+                'SELECT id, name, bill FROM users_info WHERE user_id = ?',
+                [$id]
+            )
+            ->then(function (QueryResult $result) {
+                if (empty($result->resultRows)) {
+                    throw new UserNotFound();
+                }
+
+                return $result->resultRows[0];
+
             });
     }
 }

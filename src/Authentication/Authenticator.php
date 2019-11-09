@@ -4,7 +4,6 @@
 namespace App\Authentication;
 
 
-use App\Core\JsonResponse;
 use Firebase\JWT\JWT;
 use React\Promise\PromiseInterface;
 
@@ -44,4 +43,5 @@ final class Authenticator
                 }
             );
     }
+
 }

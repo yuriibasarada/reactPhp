@@ -37,12 +37,12 @@ final class SignInController
             )
             ->otherwise(
                 function (BadCredentials $exception) {
-                    return JsonResponse::unauthorised();
+                    return JsonResponse::unauthorised('Bad Credentials');
                 }
             )
             ->otherwise(
                 function (UserNotFound $exception) {
-                    return JsonResponse::unauthorised();
+                    return JsonResponse::unauthorised('User not found');
                 }
             )
             ->otherwise(
