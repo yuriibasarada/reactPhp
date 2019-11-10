@@ -63,9 +63,5 @@ final class Input
         return $this->request->getParsedBody()['name'];
     }
 
-    public function token()
-    {
-        return $this->request->getParsedBody()['token'];
-    }
 
 }
